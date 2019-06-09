@@ -19,6 +19,7 @@ export default class Transferft extends Command {
     privateKey: flags.string({
       char: "k",
       multiple: true,
+      env: "EVT_PRIVATE_KEY",
       required: true,
       description: "Specify the private key, support multiple private key"
     }),

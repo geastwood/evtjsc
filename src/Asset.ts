@@ -7,6 +7,7 @@ class Asset {
     this.name = name;
     this.precision = precision;
   }
+  static Evt = new Asset(1, "EVT", 5);
 }
 
 export default Asset;

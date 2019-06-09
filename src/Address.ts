@@ -1,15 +1,13 @@
 import Evt from "evtjs";
+import IValidator from "./IValidator";
 
-class Address {
+class Address implements IValidator {
   readonly name: string;
   readonly address: string;
   constructor(address: string, name: string = "untitled") {
     this.name = name;
     this.address = address;
   }
-
-  getName = () => this.name;
-  getAddress = () => this.address;
   validate = () => {
     const isValid = Evt.EvtKey.isValidAddress(this.address);
 
