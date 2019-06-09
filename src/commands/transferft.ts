@@ -26,7 +26,8 @@ export default class Transferft extends Command {
     noVerify: flags.boolean({
       default: false,
       char: "n",
-      description: "Specify this flag to bypass the input verification"
+      description: "Specify this flag to bypass the input verification",
+      exclusive: ["dryRun"]
     }),
     interactive: flags.boolean({
       default: false,
@@ -45,6 +46,11 @@ export default class Transferft extends Command {
       required: true,
       description:
         "Specify which node to use, e.g. https://mainnet1.everitoken.io"
+    }),
+    dryRun: flags.boolean({
+      default: false,
+      description: "Specify this flag to perform a dry run",
+      exclusive: ["noVerify"]
     })
   };
 

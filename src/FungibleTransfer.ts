@@ -26,6 +26,7 @@ class FungibleTransfer implements IValidator {
       };
     }
 
+    // validate "from", "to" and "balance"
     [this.from, this.to, this.balance].forEach(field => {
       const result = field.validate();
       success = result.success && success;

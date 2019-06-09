@@ -10,7 +10,7 @@ class PrivateKey implements IValidator {
     if (!Evt.EvtKey.isValidPrivateKey(this.wif)) {
       return {
         success: false,
-        errorMsg: "The private key passed in is not valid."
+        errorMsg: "The private key specified is invalid."
       };
     }
 

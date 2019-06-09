@@ -4,7 +4,7 @@ import PrivateKey from "../src/PrivateKey";
 describe("PrivateKey", () => {
   it("invalid private key", () => {
     const { success, errorMsg } = new PrivateKey("EVT000").validate();
-    expect(errorMsg).to.equal("The private key passed in is not valid.");
+    expect(errorMsg).to.equal("The private key specified is invalid.");
     expect(success).to.equal(false);
   });
 
