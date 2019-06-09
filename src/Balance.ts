@@ -10,6 +10,42 @@ class Balance implements IValidator {
     this.asset = asset;
   }
 
+  static parse(raw: string): Balance {
+    const parts = raw.trim().split(" ");
+
+    if (parts.length !== 2) {
+      throw new Error(`Failed to parse "${raw}"`);
+    }
+
+    if (Number.isNaN(parseFloat(parts[0]))) {
+      throw new Error(`Failed to parse balance "${parts[0]}"`);
+    }
+
+    const assetParts = parts[1].trim().split("#");
+    if (assetParts.length !== 2) {
+      throw new Error(`Failed to parse Symbol "${parts[1]}"`);
+    }
+
+    const symbolId = parseInt(assetParts[1], 10);
+    if (Number.isNaN(symbolId)) {
+      throw new Error(`Failed to parse Symbol "${assetParts[1]}"`);
+    }
+
+    const balanceParts = parts[0].trim().split(".");
+
+    if (balanceParts[1] === undefined || !balanceParts[1].length) {
+      throw new Error(`Invalid balance "${parts[0]}"`);
+    }
+
+    // validate balance case of "1000.----", the second part must also be number like
+    if (Number.isNaN(parseInt(balanceParts[1], 10))) {
+      throw new Error(`Failed to parse balance "${parts[0]}"`);
+    }
+
+    const asset = new Asset(symbolId, balanceParts[1].length);
+    return new Balance(parts[0], asset);
+  }
+
   validate = () => {
     const balance = parseFloat(this.balance);
 
