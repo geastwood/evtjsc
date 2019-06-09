@@ -15,7 +15,6 @@ describe("Balance", () => {
       balance,
       "memo"
     ).validate();
-    console.log(errorMsg);
     expect(success).to.equal(false);
   });
 
@@ -33,13 +32,16 @@ describe("Balance", () => {
       balance,
       "memo"
     ).validate();
-    console.log(errorMsg);
     expect(success).to.equal(false);
   });
 
-  xit("valid fungible transfer", () => {
-    const from = new Address("EVT_from");
-    const to = new Address("EVT_to");
+  it("valid fungible transfer", () => {
+    const from = new Address(
+      "EVT7mGEucj6d2AgY9Ao9xL3smFZC3NkQEawddKQpr2esZzNvdzjYH"
+    );
+    const to = new Address(
+      "EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND"
+    );
     const balance = new Balance("1000.00000", Asset.Evt);
     const { success, errorMsg } = new FungibleTransfer(
       from,
@@ -47,7 +49,6 @@ describe("Balance", () => {
       balance,
       "memo"
     ).validate();
-    console.log(errorMsg);
-    expect(success).to.equal(false);
+    expect(success).to.equal(true);
   });
 });
