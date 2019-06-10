@@ -941,7 +941,7 @@ buffer-alloc-unsafe@^1.1.0:
   resolved "https://registry.yarnpkg.com/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz#bd7dc26ae2972d0eda253be061dba992349c19f0"
   integrity sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg==
 
-buffer-alloc@^1.2.0:
+buffer-alloc@^1.1.0, buffer-alloc@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/buffer-alloc/-/buffer-alloc-1.2.0.tgz#890dd90d923a873e08e10e5fd51a57e5b7cce0ec"
   integrity sha512-CFsHQgjtW1UChdXgbyJGtnm+O/uLQeZdtbDo8mfUgYXCHSM1wgrVxXm6bSyrUuErEb+4sYVGCzASBRot7zyrow==
@@ -1258,6 +1258,19 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+csv-parser@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/csv-parser/-/csv-parser-2.3.0.tgz#d236657dbd33ff3733b74cae6c3d7d7389679174"
+  integrity sha512-yfYRZ9P9LNKuRK0lEFf40Be4HcFxe1XgxWL/QmlkakSE8SHcWbOGFZA/u7YpfGX/hVbRUdbnO5xO8XuYxrcBtA==
+  dependencies:
+    buffer-alloc "^1.1.0"
+    buffer-from "^1.0.0"
+    execa "^1.0.0"
+    generate-function "^1.0.1"
+    generate-object-property "^1.0.0"
+    minimist "^1.2.0"
+    ndjson "^1.4.0"
 
 debug@3.1.0:
   version "3.1.0"
@@ -1674,6 +1687,18 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+generate-function@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-1.1.0.tgz#54c21b080192b16d9877779c5bb81666e772365f"
+  integrity sha1-VMIbCAGSsW2Yd3ecW7gWZudyNl8=
+
+generate-object-property@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/generate-object-property/-/generate-object-property-1.2.0.tgz#9c0e1c40308ce804f4783618b937fa88f99d50d0"
+  integrity sha1-nA4cQDCM6AT0eDYYuTf6iPmdUNA=
+  dependencies:
+    is-property "^1.0.0"
+
 get-caller-file@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
@@ -2069,6 +2094,11 @@ is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-property@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/is-property/-/is-property-1.0.2.tgz#57fe1c4e48474edd65b09911f26b1cd4095dda84"
+  integrity sha1-V/4cTkhHTt1lsJkR8msc1Ald2oQ=
+
 is-retry-allowed@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-retry-allowed/-/is-retry-allowed-1.1.0.tgz#11a060568b67339444033d0125a61a20d564fb34"
@@ -2210,6 +2240,11 @@ json-parse-better-errors@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
   integrity sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
+
+json-stringify-safe@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
+  integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -2451,6 +2486,11 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
+minimist@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+
 minimist@~0.0.1:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
@@ -2529,6 +2569,16 @@ natural-orderby@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/natural-orderby/-/natural-orderby-2.0.3.tgz#8623bc518ba162f8ff1cdb8941d74deb0fdcc016"
   integrity sha512-p7KTHxU0CUrcOXe62Zfrb5Z13nLvPhSWR/so3kFulUQU0sgUll2Z0LwpsLN351eOOD+hRGu/F1g+6xDfPeD++Q==
+
+ndjson@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/ndjson/-/ndjson-1.5.0.tgz#ae603b36b134bcec347b452422b0bf98d5832ec8"
+  integrity sha1-rmA7NrE0vOw0e0UkIrC/mNWDLsg=
+  dependencies:
+    json-stringify-safe "^5.0.1"
+    minimist "^1.2.0"
+    split2 "^2.1.0"
+    through2 "^2.0.3"
 
 neo-async@^2.6.0:
   version "2.6.1"
@@ -2889,7 +2939,7 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-readable-stream@^2.3.0, readable-stream@^2.3.5:
+readable-stream@^2.3.0, readable-stream@^2.3.5, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
@@ -3238,6 +3288,13 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+split2@^2.1.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/split2/-/split2-2.2.0.tgz#186b2575bcf83e85b7d18465756238ee4ee42493"
+  integrity sha512-RAb22TG39LhI31MbreBgIuKiIKhVsawfTgEGqKHTK87aG+ul/PB8Sqoi3I7kVdRWiCfrKxK3uo4/YUkpNvhPbw==
+  dependencies:
+    through2 "^2.0.2"
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -3389,6 +3446,14 @@ test-exclude@^5.1.0:
     minimatch "^3.0.4"
     read-pkg-up "^4.0.0"
     require-main-filename "^2.0.0"
+
+through2@^2.0.2, through2@^2.0.3:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
+  integrity sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==
+  dependencies:
+    readable-stream "~2.3.6"
+    xtend "~4.0.1"
 
 tmp@^0.0.33:
   version "0.0.33"
@@ -3695,7 +3760,7 @@ write-json-file@^2.3.0:
     sort-keys "^2.0.0"
     write-file-atomic "^2.0.0"
 
-xtend@^4.0.0:
+xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=

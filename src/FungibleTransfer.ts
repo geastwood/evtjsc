@@ -13,6 +13,14 @@ class FungibleTransfer implements IValidator {
     this.balance = balance;
     this.memo = memo;
   }
+  static of(raw: { from: string; to: string; balance: string; memo: string }) {
+    return new FungibleTransfer(
+      new Address(raw.from),
+      new Address(raw.to),
+      Balance.parse(raw.balance),
+      raw.memo || ""
+    );
+  }
   validate = () => {
     let errors: string[] = [];
     let success = true;
@@ -31,13 +39,13 @@ class FungibleTransfer implements IValidator {
       const result = field.validate();
       success = result.success && success;
       if (!result.success) {
-        errors = [...errors, ` - ${result.errorMsg}\n`];
+        errors = [...errors, ` - ${result.errorMsg}`];
       }
     });
 
     return {
       success,
-      errorMsg: errors.join("")
+      errorMsg: errors.join("\n")
     };
   };
 }

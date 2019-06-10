@@ -69,6 +69,9 @@ class Balance implements IValidator {
 
     return { success: true, errorMsg: "" };
   };
+  getBalance = () => {
+    return `${this.balance} S#${this.asset.id}`;
+  };
 }
 
 export default Balance;

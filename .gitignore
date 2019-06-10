@@ -6,4 +6,5 @@
 /package-lock.json
 /tmp
 /coverage
+/data
 node_modules
