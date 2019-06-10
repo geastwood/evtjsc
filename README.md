@@ -57,3 +57,19 @@ EXAMPLES
   - Use balance from one address to another address
        $ evtjsc transferft --from=address --to="address" --balance="0.10000 S#1" --memo="test"
 ```
+
+## Demo CSV file
+
+```csv
+from,to,balance,memo
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT6WfKLZ7Y7gktXuAwT6nSvcePabQUsZyw9ZyKTdSnuS7i7PxuUp,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT6BUvKvUfxDv5qt1cJ1JkoK68wv5TTce3ZFNLarBK3gTVx8j1eP,0.00011 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT5LtAz4EvdfqjnYHws18vYHDs6zEHn78DhyEEKpN6JuK6fe8Vuq,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT4unfd4wnNLZa82Q5DZDseVtMPHpgRwVvtUbfjm3i8syVJGHmkc,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT7f4we2rx1QbtpJ5MCPrz5pvRxPezGjNqKKbEMjssVWyYU9xrXC,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT7rG13sSuGVXNpPrRwUSknVhZC4jm81xpmfQzofusMMyRqKfjis,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT792sHgx5vayYBXJz6Kb1UroheYXQauThoi9fhP6QARVofE5dUe,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT74VAieeMJ8Ade58vXMRfEShz3qFDqj89VPoyHsJzAakSLWRtBe,0.00011 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT77UgQPsvBZ154duVHfHeSk8musPT7GTRG2K88amUK2BCobeauQ,0.00010 S#20,test
+EVT6Qz3wuRjyN6gaU3P3XRxpnEZnM4oPxortemaWDwFRvsv2FxgND,EVT6ZnPEPVEs9LHJsgAX8Fcv8fPqsfzfY7RyKzWSUJb5qeMZKYLZu,0.00010 S#20,test
+```
