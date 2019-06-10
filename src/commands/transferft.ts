@@ -14,8 +14,16 @@ export default class Transferft extends Command {
     "Command to transfer fungible token, e.g. transfer Evt to another address";
 
   static examples = [
-    `$ evtjsc transferft --file=/path/to/file --private-key=p1`,
-    `$ evtjsc transferft --file=/path/to/file --private-key=p1 --private-key=p2`
+    `- use "privateKey1" to sign transfer in csv file
+    $ evtjsc transferft --file=/path/to/file.csv --private-key=privateKey1`,
+    `- use both keys to sign
+    $ evtjsc transferft --file=/path/to/file.csv --private-key=p1 --private-key=p2 `,
+    `- specify network
+    $ evtjsc transferft --file=/path/to/file.csv --private-key=p1 --net="https://mainnet1.everitoken.io"`,
+    `- only dry run the process, will not push to blockchain
+    $ evtjsc transferft --dry-run --file=/path/to/file.csv --private-key=p1 `,
+    `- Use balance from one address to another address
+    $ evtjsc transferft --from=address --to="address" --balance="0.10000 S#1" --memo="test" `
   ];
 
   static flags = {
