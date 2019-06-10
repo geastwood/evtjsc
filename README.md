@@ -2,17 +2,14 @@
 
 Command line tool to interact with everiToken public blockchain
 
+## Run command locally
+
+1. clone this repo
+2. run `yarn` install dependencies
+3. use `./bin/run` instead of `evtjsc` to run the command. e.g.
+
 ```bash
-VERSION
-evtjsc/0.1.0 darwin-x64 node-v11.10.1
-
-USAGE
-$ evtjsc [COMMAND]
-
-COMMANDS
-help display help for evtjsc
-transferft Command to transfer fungible token, e.g. transfer Evt to another
-address
+./bin/run transferft --file=`pwd`/data/batchTransfer.csv -k=5J1by7KRQujRdXrurEsvEr2zQGcdPaMJRjewER6XsAR2eCcpt3D --dry-run --net="https://testnet1.everitoken.io"
 ```
 
 ## Transfer fungible (transferft)
