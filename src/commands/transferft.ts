@@ -40,12 +40,6 @@ export default class Transferft extends Command {
       required: true,
       description: "Specify the private key, support multiple private key"
     }),
-    interactive: flags.boolean({
-      default: false,
-      hidden: true,
-      char: "i",
-      description: "Specify this flag to enable the interactive mode"
-    }),
     from: flags.string({
       description: "Specify the from address",
       dependsOn: ["to", "balance", "memo"],
