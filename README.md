@@ -2,6 +2,10 @@
 
 Command line tool to interact with everiToken public blockchain
 
+## Install 
+
+`npm install -g evtjsc` or `yarn global add evtjsc`
+
 ## Run command locally
 
 1. clone this repo
