@@ -5,6 +5,7 @@ import Binance from "../Binance";
 import { log } from "../util";
 import Bep2Transfer from "../Bep2Transfer";
 import config from "../config";
+import { get } from "lodash";
 
 export default class Transferft extends Command {
   static description = "Command to transfer Evt (BEP2) token, e.g. transfer Evt (BEP2) to another address";
@@ -98,8 +99,10 @@ export default class Transferft extends Command {
     log(`Transfer Mode: ${chalk.bgWhite.bold.red(useBatch ? " BATCH " : " SINGLE ")}`);
     if (!flags["dry-run"]) {
       const trx = await fungibleTransferBatch.transfer(binanceClient, flags.memo || "");
+      const hash = get(trx, "result[0].hash");
 
-      this.log(trx);
+      log(`STATUS:\t${trx.status}`);
+      log(`LINK:\t${config.explorer}tx/${hash}`);
     } else {
       log(`In dry run mode, nothing serious happened.`);
     }
