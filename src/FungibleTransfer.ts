@@ -23,7 +23,7 @@ class FungibleTransfer implements IValidator {
     if (this.from.address === this.to.address) {
       return {
         success: false,
-        errorMsg: `\"from\" and \"to\" have the same value "${this.from.address}"`
+        errorMsg: `"from" and "to" have the same value "${this.from.address}"`
       };
     }
 

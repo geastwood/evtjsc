@@ -1,4 +1,5 @@
 import chalk from "chalk";
+
 export const log = (msg: string) => console.log(`${chalk.bold.blue("[INFO]")}: ${msg}`);
 
 export const parseNetworkString = (net: string) => {
