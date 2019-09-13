@@ -10,8 +10,7 @@ import IValidator from "../IValidator";
 import Evt from "evtjs";
 
 export default class Transferft extends Command {
-  static description =
-    "Command to transfer fungible token, e.g. transfer Evt to another address";
+  static description = "Command to transfer fungible token, e.g. transfer Evt to another address";
 
   static examples = [
     `- use "privateKey1" to sign transfer in csv file
@@ -64,8 +63,7 @@ export default class Transferft extends Command {
       char: "x",
       env: "EVT_NET",
       required: true,
-      description:
-        "Specify which node to use, e.g. https://mainnet1.everitoken.io"
+      description: "Specify which node to use, e.g. https://mainnet1.everitoken.io"
     }),
     "dry-run": flags.boolean({
       default: false,
@@ -95,11 +93,7 @@ export default class Transferft extends Command {
   async run() {
     const { flags } = this.parse(Transferft);
 
-    log(
-      `Starting process in "${
-        flags["dry-run"] ? "dry run" : "production"
-      }" mode.`
-    );
+    log(`Starting process in "${flags["dry-run"] ? "dry run" : "production"}" mode.`);
 
     // private key
     const privateKeys = flags["private-key"].map(key => new PrivateKey(key));
@@ -110,9 +104,7 @@ export default class Transferft extends Command {
 
     if (flags.file) {
       log(`Loading fungible transfer data from "${flags.file}"`);
-      fungibleTransferBatch = await FungibleTransferBatch.fromCsvFile(
-        flags.file
-      );
+      fungibleTransferBatch = await FungibleTransferBatch.fromCsvFile(flags.file);
       summaryTitle = "File summary of fungible transfer csv file";
     } else if (flags.from && flags.to && flags.balance && flags.to) {
       const fungibleTransfer = new FungibleTransfer(
@@ -124,9 +116,7 @@ export default class Transferft extends Command {
       fungibleTransferBatch = new FungibleTransferBatch([fungibleTransfer]);
       summaryTitle = "Summary of fungible transfer from cli input";
     } else {
-      this.error(
-        "Failed to construct command, please double check the command."
-      );
+      this.error("Failed to construct command, please double check the command.");
       this.exit(1);
       return;
     }
@@ -168,10 +158,7 @@ export default class Transferft extends Command {
     if (!flags["dry-run"]) {
       log(`Pushing the transaction the chain`);
 
-      let trx = await apiCaller.pushTransaction(
-        { maxCharge: 100000000 },
-        ...actions
-      );
+      let trx = await apiCaller.pushTransaction({ maxCharge: 100000000 }, ...actions);
 
       log("Transaction:");
       console.log(trx);

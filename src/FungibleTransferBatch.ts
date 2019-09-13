@@ -37,16 +37,11 @@ class FungibleTransferBatch implements IValidator, ISummary {
       };
     }
 
-    const sum = this.transfers
-      .map(t => parseFloat(t.balance.balance))
-      .reduce((a, b) => a + b, 0);
+    const sum = this.transfers.map(t => parseFloat(t.balance.balance)).reduce((a, b) => a + b, 0);
 
     return {
       success: true,
-      data: [
-        this.transfers.length,
-        sum.toFixed(this.transfers[0].balance.asset.precision)
-      ].map(String),
+      data: [this.transfers.length, sum.toFixed(this.transfers[0].balance.asset.precision)].map(String),
       errorMsg: ""
     };
   };

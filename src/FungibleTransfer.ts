@@ -14,12 +14,7 @@ class FungibleTransfer implements IValidator {
     this.memo = memo;
   }
   static of(raw: { from: string; to: string; balance: string; memo: string }) {
-    return new FungibleTransfer(
-      new Address(raw.from),
-      new Address(raw.to),
-      Balance.parse(raw.balance),
-      raw.memo || ""
-    );
+    return new FungibleTransfer(new Address(raw.from), new Address(raw.to), Balance.parse(raw.balance), raw.memo || "");
   }
   validate = () => {
     let errors: string[] = [];
@@ -28,9 +23,7 @@ class FungibleTransfer implements IValidator {
     if (this.from.address === this.to.address) {
       return {
         success: false,
-        errorMsg: `\"from\" and \"to\" have the same value "${
-          this.from.address
-        }"`
+        errorMsg: `\"from\" and \"to\" have the same value "${this.from.address}"`
       };
     }
 

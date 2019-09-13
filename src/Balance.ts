@@ -61,9 +61,7 @@ class Balance implements IValidator {
     if (part1 == null || part1.length !== this.asset.precision) {
       return {
         success: false,
-        errorMsg: `The precision of "${this.balance}" is ${
-          part1.length
-        }, which does not match ${this.asset.precision} from the Asset.`
+        errorMsg: `The precision of "${this.balance}" is ${part1.length}, which does not match ${this.asset.precision} from the Asset.`
       };
     }
 

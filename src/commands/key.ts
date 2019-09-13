@@ -10,8 +10,7 @@ type FlagTypes = {
   repeat: number | undefined;
 };
 export default class Key extends Command {
-  static description =
-    "Private key, public key related commands are defined here.";
+  static description = "Private key, public key related commands are defined here.";
 
   static examples = [
     `- randomly generate 3 private key with the corresponding public key
@@ -45,9 +44,7 @@ export default class Key extends Command {
   generate = async (flags: FlagTypes) => {
     const count = flags.repeat || 1;
 
-    log(
-      `Randomly generating ${count} private key(s) and display the corresponding public key`
-    );
+    log(`Randomly generating ${count} private key(s) and display the corresponding public key`);
 
     if (Number.isNaN(Number(count)) || count < 1) {
       this.error(`--repeat of "${flags.repeat}" is invalid`);
@@ -58,11 +55,7 @@ export default class Key extends Command {
       const privateKey = await Evt.EvtKey.randomPrivateKey();
       const publicKey = await Evt.EvtKey.privateToPublic(privateKey);
 
-      this.log(
-        `- ${chalk.blue("Private Key")}: ${privateKey}, ${chalk.blue(
-          "Public Key"
-        )}: ${publicKey}`
-      );
+      this.log(`- ${chalk.blue("Private Key")}: ${privateKey}, ${chalk.blue("Public Key")}: ${publicKey}`);
     }
   };
   verify = (flags: FlagTypes) => {
@@ -75,19 +68,11 @@ export default class Key extends Command {
 
     privateKeys.forEach(privateKey => {
       const isValid = Evt.EvtKey.isValidPrivateKey(privateKey);
-      this.log(
-        `(${
-          isValid ? chalk.bold.green("VALID") : chalk.bold.red("INVALID")
-        }) (prv) ${privateKey}`
-      );
+      this.log(`(${isValid ? chalk.bold.green("VALID") : chalk.bold.red("INVALID")}) (prv) ${privateKey}`);
     });
     publicKeys.forEach(publicKey => {
       const isValid = Evt.EvtKey.isValidPublicKey(publicKey);
-      this.log(
-        `(${
-          isValid ? chalk.bold.green("VALID") : chalk.bold.red("INVALID")
-        }) (pub) ${publicKey}`
-      );
+      this.log(`(${isValid ? chalk.bold.green("VALID") : chalk.bold.red("INVALID")}) (pub) ${publicKey}`);
     });
   };
   show = (flags: FlagTypes) => {
