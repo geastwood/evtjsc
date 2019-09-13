@@ -93,7 +93,9 @@ export default class Transferft extends Command {
   async run() {
     const { flags } = this.parse(Transferft);
 
-    log(`Starting process in "${flags["dry-run"] ? "dry run" : "production"}" mode.`);
+    log(
+      `Starting process in "${flags["dry-run"] ? chalk.bold.yellow("dry run") : chalk.bold.red("PRODUCTION")}" mode.`
+    );
 
     // private key
     const privateKeys = flags["private-key"].map(key => new PrivateKey(key));

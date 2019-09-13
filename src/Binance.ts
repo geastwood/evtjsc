@@ -1,5 +1,6 @@
 import config from "./config/index";
-import BinanceChain from "@binance-chain/javascript-sdk";
+import ITransfer from './ITransfer'
+import * as BinanceChain from "@binance-chain/javascript-sdk";
 import { writeFileSync } from "fs";
 import { join } from "path";
 
@@ -46,19 +47,20 @@ class Binance {
     writeFileSync(join(folder, "test.keystore"), JSON.stringify(keyStore));
   };
 
-  getBalance = async (address: string, symbol: string = "BNB") => {
-    return await this.client.getBalance(address, symbol);
+  getBalance = async () => {
+    return this.client.getBalance();
   };
 
-  transfer = async (
-    fromAddress: string,
-    toAddress: string,
-    amount: string,
-    asset: string,
-    memo = "",
-    sequence = null
-  ) => {
-    return await this.client.transfer(fromAddress, toAddress, amount, asset, memo, sequence);
+  transfer = async (fromAddress: string, toAddress: string, amount: string, asset: string, memo = "") =>
+    this.client.transfer(fromAddress, toAddress, amount, asset, memo, null);
+
+  batchTransfer = async (fromAddress: string, asset: string, transfers: Array<ITransfer>, memo: string = "") => {
+    const outputs = transfers.map((transfer) => ({
+      to: transfer.getTo(),
+      coins: [{ denom: asset, amount: transfer.getAmount() }]
+    }));
+
+    return this.client.multiSend(fromAddress, outputs, memo, null);
   };
 }
 

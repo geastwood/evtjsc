@@ -1,6 +1,7 @@
 export default function() {
   return {
     api: "https://dex.binance.org/",
-    bepAddressPrefix: "tbnb"
+    bepAddressPrefix: "bnb",
+    binanceChainSymbol: "EVT-49B"
   };
 }

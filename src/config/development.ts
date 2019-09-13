@@ -1,6 +1,7 @@
 export default function() {
   return {
     api: "https://testnet-dex.binance.org/",
-    bepAddressPrefix: "bnb"
+    bepAddressPrefix: "tbnb",
+    binanceChainSymbol: "MCB-704"
   };
 }

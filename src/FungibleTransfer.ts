@@ -1,8 +1,9 @@
 import Address from "./Address";
 import Balance from "./Balance";
 import IValidator from "./IValidator";
+import ITransfer from "./ITransfer";
 
-class FungibleTransfer implements IValidator {
+class FungibleTransfer implements IValidator, ITransfer {
   readonly from: Address;
   readonly to: Address;
   readonly balance: Balance;
@@ -41,6 +42,12 @@ class FungibleTransfer implements IValidator {
       errorMsg: errors.join("\n")
     };
   };
+  getTo() {
+    return this.to.address;
+  }
+  getAmount() {
+    return this.balance.balance
+  }
 }
 
 export default FungibleTransfer;
