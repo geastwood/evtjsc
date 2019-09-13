@@ -1,10 +1,8 @@
 import Bep2Transfer from "./Bep2Transfer";
-import ITransfer from "./ITransfer";
 import Binance from "./Binance";
 import * as fs from "fs";
 import * as csv from "csv-parser";
 import ISummary from "./ISummary";
-import { get } from "lodash";
 import config from "./config";
 
 class Bep2TransferBatch implements ISummary {
@@ -17,7 +15,7 @@ class Bep2TransferBatch implements ISummary {
     return this.transfers.length > 1;
   };
 
-  transfer = async (client: Binance) => {
+  transfer = async (client: Binance, memo: string = "") => {
     const isBatch = this.isBatch();
 
     if (this.transfer.length === 0) {
@@ -28,11 +26,13 @@ class Bep2TransferBatch implements ISummary {
 
     let trx = null;
 
-    if (isBatch) {
-      trx = await client.transfer(first.from, first.to, first.balance, config.binanceChainSymbol, first.memo);
+    if (!isBatch) {
+      trx = await client.transfer(first.from, first.to, first.balance, config.binanceChainSymbol, first.memo || memo);
     } else {
-      trx = await client.batchTransfer(first.from, config.binanceChainSymbol, this.transfers, "");
+      trx = await client.batchTransfer(first.from, config.binanceChainSymbol, this.transfers, memo);
     }
+
+    return trx;
   };
 
   summary = () => {
@@ -51,8 +51,8 @@ class Bep2TransferBatch implements ISummary {
     return new Promise((resolve, reject) => {
       fs.createReadStream(filePath)
         .pipe(csv())
-        .on("data", (row: { from: string; to: string; balance: string; memo?: string }) => {
-          rows = [...rows, Bep2Transfer.of(row.from, row.to, row.balance, row.memo)];
+        .on("data", (row: { from: string; to: string; balance: string }) => {
+          rows = [...rows, Bep2Transfer.of(row.from, row.to, row.balance)];
         })
         .on("end", () => {
           resolve(new Bep2TransferBatch(rows));

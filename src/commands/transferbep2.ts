@@ -41,9 +41,7 @@ export default class Transferft extends Command {
       exclusive: ["file"]
     }),
     memo: flags.string({
-      description: "Specify the memo",
-      dependsOn: ["from", "to", "balance"],
-      exclusive: ["file"]
+      description: "Specify the memo"
     }),
     "dry-run": flags.boolean({
       default: false,
@@ -99,8 +97,9 @@ export default class Transferft extends Command {
 
     log(`Transfer Mode: ${chalk.bgWhite.bold.red(useBatch ? " BATCH " : " SINGLE ")}`);
     if (!flags["dry-run"]) {
-      fungibleTransferBatch.transfer(binanceClient)
-      // TODO log transction
+      const trx = await fungibleTransferBatch.transfer(binanceClient, flags.memo || "");
+
+      this.log(trx);
     } else {
       log(`In dry run mode, nothing serious happened.`);
     }

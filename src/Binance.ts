@@ -1,5 +1,5 @@
 import config from "./config/index";
-import ITransfer from './ITransfer'
+import ITransfer from "./ITransfer";
 import * as BinanceChain from "@binance-chain/javascript-sdk";
 import { writeFileSync } from "fs";
 import { join } from "path";
@@ -55,7 +55,7 @@ class Binance {
     this.client.transfer(fromAddress, toAddress, amount, asset, memo, null);
 
   batchTransfer = async (fromAddress: string, asset: string, transfers: Array<ITransfer>, memo: string = "") => {
-    const outputs = transfers.map((transfer) => ({
+    const outputs = transfers.map(transfer => ({
       to: transfer.getTo(),
       coins: [{ denom: asset, amount: transfer.getAmount() }]
     }));
@@ -63,5 +63,13 @@ class Binance {
     return this.client.multiSend(fromAddress, outputs, memo, null);
   };
 }
+
+// const run = () => {
+//   const mnenomic = process.env.MNENOMIC;
+//   const privateKey = Binance.getPrivateKey(mnenomic);
+//   const publicKey = Binance.getPublicKey(privateKey);
+//   console.log(Binance.getAddress(publicKey));
+// };
+// run();
 
 export default Binance;
