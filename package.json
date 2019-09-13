@@ -8,6 +8,7 @@
   },
   "bugs": "https://github.com/geastwood/evtjsc/issues",
   "dependencies": {
+    "@binance-chain/javascript-sdk": "^2.15.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
     "@oclif/test": "^1.2.5",
+    "@types/": "binance-chain/javascript-sdk",
     "@types/chai": "^4.2.2",
     "@types/mocha": "^5",
     "@types/node": "^12.7.4",
