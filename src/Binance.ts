@@ -16,8 +16,8 @@ class Binance {
     const privateKey = Binance.getPrivateKey(mnemonic);
 
     await client.initChain();
-    client.setPrivateKey(privateKey);
     client.chooseNetwork(config.bepAddressPrefix === "tbnb" ? "testnet" : "mainnet");
+    client.setPrivateKey(privateKey);
     client.useDefaultSigningDelegate();
     client.useDefaultBroadcastDelegate();
     return binance;
@@ -63,13 +63,5 @@ class Binance {
     return this.client.multiSend(fromAddress, outputs, memo, null);
   };
 }
-
-// const run = () => {
-//   const mnenomic = process.env.MNENOMIC;
-//   const privateKey = Binance.getPrivateKey(mnenomic);
-//   const publicKey = Binance.getPublicKey(privateKey);
-//   console.log(Binance.getAddress(publicKey));
-// };
-// run();
 
 export default Binance;

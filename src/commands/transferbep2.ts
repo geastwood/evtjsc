@@ -58,7 +58,7 @@ export default class Transferft extends Command {
     );
 
     // get mnemonic from env
-    const mnemonic = process.env.MNENOMIC;
+    const mnemonic = config.name === "production" ? process.env.MNENOMIC : process.env.MNENOMIC_TEST;
     if (!mnemonic) {
       this.error("MNENOMIC is missing.");
       process.exit(1);

@@ -46,7 +46,7 @@ class FungibleTransfer implements IValidator, ITransfer {
     return this.to.address;
   }
   getAmount() {
-    return this.balance.balance
+    return this.balance.balance;
   }
 }
 
