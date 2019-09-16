@@ -13,10 +13,10 @@ export default class Transferft extends Command {
   static examples = [
     `- use "privateKey1" to sign transfer in csv file
     $ MNENOMIC="" evtjsc transferbep2 --file=/path/to/file.csv`,
-    `- specify environment
-    $ MNENOMIC="" NODE_ENV=production evtjsc transferbep2 --file=/path/to/file.csv`,
+    `- specify environment and run command in dry-run mode
+    $ NODE_ENV=production evtjsc transferbep2 --dry-run --file="fullpath/to/file.csv" --memo="memo"`,
     `- Use balance from one address to another address
-    $ MNENOMIC="" evtjsc transferbep2 --from=address --to="address" --balance="0.10000 S#1" --memo="test" `
+    $ MNENOMIC="" evtjsc transferbep2 --from=address --to="address" --balance="0.10000" --memo="test" `
   ];
 
   static flags = {
