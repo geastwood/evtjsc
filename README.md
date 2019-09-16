@@ -1,5 +1,6 @@
 # evtjsc
 
+![npm](https://img.shields.io/npm/v/evtjsc.svg) ![language](https://img.shields.io/npm/types/evtjsc.svg) ![license](https://img.shields.io/npm/l/evtjsc.svg)
 Command line tool to interact with everiToken public blockchain
 
 ## Install 

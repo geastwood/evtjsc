@@ -1,7 +1,7 @@
 {
   "name": "evtjsc",
   "description": "Command line tool to interact with everiToken public blockchain",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "author": "Fei Liu <liu.feiwood@gmail.com>",
   "bin": {
     "evtjsc": "./bin/run"
@@ -21,7 +21,6 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
     "@oclif/test": "^1.2.5",
-    "@types/": "binance-chain/javascript-sdk",
     "@types/chai": "^4.2.2",
     "@types/lodash": "^4.14.138",
     "@types/mocha": "^5",
@@ -66,7 +65,7 @@
     "lint": "eslint -c ./.eslintrc.js --ext .ts src/**",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "rm -rf lib tsconfig.tsbuildinfo && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib tsconfig.tsbuildinfo && tsc -b || echo 'ok' && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "test:watch": "mocha --forbid-only --watch \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
