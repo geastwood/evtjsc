@@ -1,7 +1,7 @@
 {
   "name": "evtjsc",
   "description": "Command line tool to interact with everiToken public blockchain",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Fei Liu <liu.feiwood@gmail.com>",
   "bin": {
     "evtjsc": "./bin/run"
